@@ -48,8 +48,8 @@
 		1FA43BE7224E569A00F565CB /* SimpleCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCalcTests.swift; sourceTree = "<group>"; };
 		1FA43BE9224E569A00F565CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B971C064261E0A3E00736F19 /* AlertMessageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessageTest.swift; sourceTree = "<group>"; };
-		B971C071261E0E4600736F19 /* SimpleCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimpleCalc.swift; path = CountOnMeTests/SimpleCalc.swift; sourceTree = SOURCE_ROOT; };
-		B971C07C261E0EBF00736F19 /* AlertMessageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertMessageTool.swift; path = CountOnMeTests/AlertMessageTool.swift; sourceTree = SOURCE_ROOT; };
+		B971C071261E0E4600736F19 /* SimpleCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SimpleCalc.swift; path = CountOnMe/Model/SimpleCalc.swift; sourceTree = SOURCE_ROOT; };
+		B971C07C261E0EBF00736F19 /* AlertMessageTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertMessageTool.swift; path = CountOnMe/Model/AlertMessageTool.swift; sourceTree = SOURCE_ROOT; };
 		B971C08D261E103000736F19 /* CountOnMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountOnMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B971C08F261E103000736F19 /* CountOnMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountOnMeUITests.swift; sourceTree = "<group>"; };
 		B971C091261E103000736F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,12 +103,10 @@
 		1FA43BD1224E569900F565CB /* CountOnMe */ = {
 			isa = PBXGroup;
 			children = (
-				D132EE56260CC554005E6A32 /* Model */,
+				B9A12D5D261E234B00876509 /* SupportFiles */,
+				B9A12D5C261E233A00876509 /* Model */,
 				D132EE57260CC55A005E6A32 /* View */,
 				D132EE58260CC560005E6A32 /* Controller */,
-				1FA43BD2224E569900F565CB /* AppDelegate.swift */,
-				1FA43BD9224E569A00F565CB /* Assets.xcassets */,
-				1FA43BDB224E569A00F565CB /* LaunchScreen.storyboard */,
 				1FA43BDE224E569A00F565CB /* Info.plist */,
 			);
 			path = CountOnMe;
@@ -133,13 +131,23 @@
 			path = CountOnMeUITests;
 			sourceTree = "<group>";
 		};
-		D132EE56260CC554005E6A32 /* Model */ = {
+		B9A12D5C261E233A00876509 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B971C071261E0E4600736F19 /* SimpleCalc.swift */,
 				B971C07C261E0EBF00736F19 /* AlertMessageTool.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B9A12D5D261E234B00876509 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1FA43BD2224E569900F565CB /* AppDelegate.swift */,
+				1FA43BD9224E569A00F565CB /* Assets.xcassets */,
+				1FA43BDB224E569A00F565CB /* LaunchScreen.storyboard */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 		D132EE57260CC55A005E6A32 /* View */ = {
