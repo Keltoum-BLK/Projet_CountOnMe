@@ -41,9 +41,7 @@ class ViewController: UIViewController {
 
     // View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
-        guard let numberText = sender.title(for: .normal) else {
-            return
-        }
+        guard let numberText = sender.title(for: .normal) else { return }
 
         if expressionHaveResult {
             textView.text = ""
