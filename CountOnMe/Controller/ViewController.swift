@@ -32,11 +32,23 @@ class ViewController: UIViewController {
     var expressionHaveResult: Bool {
         return textView.text.firstIndex(of: "=") != nil
     }
+    
+    var alreadyReset : Bool {
+        return textView.text != ""
+    }
+    
 
     // View Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    
+    private func operatorAlreadyChoosen() {
+        let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
     }
 
     // View actions
@@ -130,10 +142,18 @@ class ViewController: UIViewController {
         textView.text.append(" = \(operationsToReduce.first!)")
     }
     
-    private func operatorAlreadyChoosen() {
-        let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
+    
+    @IBAction func resetCalc(_ sender: UIButton) {
+        if alreadyReset {
+            textView.text = ""
+            print("Effacé")
+        } else {
+            let alertVC = UIAlertController(title: "Erreur", message: "Vous avez déjà effacer la dernière opération !", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alertVC, animated: true, completion: nil)
+            print("deja effacé")
+        }
     }
+    
 
 }
