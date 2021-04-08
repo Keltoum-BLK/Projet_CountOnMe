@@ -34,7 +34,7 @@ class SimpleCalcTest: XCTestCase {
         
     }
     
-    func testGivenSoustraction_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenResultingInTextView() {
+    func testGivenSubstraction_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenResultingInTextView() {
         
     }
     

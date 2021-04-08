@@ -10,4 +10,20 @@ import Foundation
 
 class SimpleCalc {
     
+    func additionAction() {
+        
+    }
+    
+    func substrationAction() {
+        
+    }
+    
+    func multiplicationAction() {
+    
+    }
+    
+    func divisionAction() {
+        
+    }
+    
 }
