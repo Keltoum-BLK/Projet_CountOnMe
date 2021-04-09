@@ -166,84 +166,75 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ogr-Aw-e1h">
-                                <rect key="frame" x="15" y="587" width="345" height="45"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ogr-Aw-e1h">
+                                <rect key="frame" x="15" y="583" width="345" height="49"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQU-P5-55X">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
-                                        <color key="backgroundColor" red="0.46913260919999999" green="0.7149516575" blue="0.62407517239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQU-P5-55X">
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="DQU-P5-55X" secondAttribute="height" multiplier="1:1" id="0RI-9E-0dF"/>
+                                            <constraint firstAttribute="width" secondItem="DQU-P5-55X" secondAttribute="height" multiplier="1:1" id="1SX-Bk-haS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                        <state key="normal" title="+">
+                                        <state key="normal" image="plus">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="tappedAdditionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="V0J-eg-vQK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zr-HC-0N9">
-                                        <rect key="frame" x="60" y="0.0" width="45" height="45"/>
-                                        <color key="backgroundColor" red="0.87294975829999999" green="0.37112226879999999" blue="0.32504552809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zr-HC-0N9">
+                                        <rect key="frame" x="59" y="0.0" width="49.5" height="49"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="3zr-HC-0N9" secondAttribute="height" multiplier="1:1" id="QcZ-tG-3cR"/>
+                                            <constraint firstAttribute="width" secondItem="3zr-HC-0N9" secondAttribute="height" multiplier="1:1" id="gRw-yc-dS4"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                        <state key="normal" title="-">
+                                        <state key="normal" image="substration">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="tappedSubstractionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="KVX-AF-NVM"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgD-cl-ihC">
-                                        <rect key="frame" x="120" y="0.0" width="45" height="45"/>
-                                        <color key="backgroundColor" red="0.3059952259" green="0.57028073069999996" blue="0.72033840419999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgD-cl-ihC">
+                                        <rect key="frame" x="118.5" y="0.0" width="49" height="49"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="YgD-cl-ihC" secondAttribute="height" multiplier="1:1" id="XaL-D9-Atc"/>
+                                            <constraint firstAttribute="width" secondItem="YgD-cl-ihC" secondAttribute="height" multiplier="1:1" id="nBW-vr-NV1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                        <state key="normal" title="x">
+                                        <state key="normal" image="multi">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="tappedMultiplicationButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="U5f-h3-hav"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1g-NX-obe">
-                                        <rect key="frame" x="180" y="0.0" width="45" height="45"/>
-                                        <color key="backgroundColor" red="0.64725221045450998" green="0.58060651350580739" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1g-NX-obe">
+                                        <rect key="frame" x="177.5" y="0.0" width="49" height="49"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Q1g-NX-obe" secondAttribute="height" multiplier="1:1" id="7Sz-pe-oHW"/>
+                                            <constraint firstAttribute="width" secondItem="Q1g-NX-obe" secondAttribute="height" multiplier="1:1" id="g3m-En-4ga"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                        <state key="normal" title="/">
+                                        <state key="normal" image="division">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="tappedDivisionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="jtf-Qv-A8s"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMj-Of-bCU">
-                                        <rect key="frame" x="240" y="0.0" width="45" height="45"/>
-                                        <color key="backgroundColor" red="0.94643473759999996" green="0.64318747399999998" blue="0.12665354140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMj-Of-bCU">
+                                        <rect key="frame" x="236.5" y="0.0" width="49.5" height="49"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="qMj-Of-bCU" secondAttribute="height" multiplier="1:1" id="tOm-Ss-KuT"/>
+                                            <constraint firstAttribute="width" secondItem="qMj-Of-bCU" secondAttribute="height" multiplier="1:1" id="ORH-Nb-nxj"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                        <state key="normal" title="=">
+                                        <state key="normal" image="equal">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="tappedEqualButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="JgS-cl-T2a"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rd8-IN-0el">
-                                        <rect key="frame" x="300" y="0.0" width="45" height="45"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <state key="normal" title="AC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rd8-IN-0el">
+                                        <rect key="frame" x="296" y="0.0" width="49" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rd8-IN-0el" secondAttribute="height" multiplier="1:1" id="3YO-Rf-LK4"/>
+                                        </constraints>
+                                        <state key="normal" image="AC">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
@@ -251,10 +242,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="YgD-cl-ihC" firstAttribute="width" secondItem="YgD-cl-ihC" secondAttribute="height" multiplier="1:1" id="3o5-Us-e3X"/>
-                                    <constraint firstItem="Q1g-NX-obe" firstAttribute="width" secondItem="Q1g-NX-obe" secondAttribute="height" multiplier="1:1" id="j8j-P4-SkL"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3V3-7l-HUf"/>
@@ -291,6 +278,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AC" width="40.5" height="40.5"/>
+        <image name="division" width="40.5" height="40.5"/>
+        <image name="equal" width="40.5" height="40.5"/>
+        <image name="multi" width="50" height="50"/>
+        <image name="plus" width="40.5" height="40.5"/>
+        <image name="substration" width="40.5" height="40.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
