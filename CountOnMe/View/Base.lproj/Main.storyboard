@@ -171,10 +171,12 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQU-P5-55X">
                                         <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                        <color key="backgroundColor" red="0.52205961940000001" green="0.79573774340000003" blue="0.69536799189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="DQU-P5-55X" secondAttribute="height" multiplier="1:1" id="1SX-Bk-haS"/>
                                         </constraints>
-                                        <state key="normal" image="plus">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <state key="normal" title="+">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -183,10 +185,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zr-HC-0N9">
                                         <rect key="frame" x="59" y="0.0" width="49.5" height="49"/>
+                                        <color key="backgroundColor" red="0.94495993850000004" green="0.35713273290000003" blue="0.33157521490000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3zr-HC-0N9" secondAttribute="height" multiplier="1:1" id="gRw-yc-dS4"/>
                                         </constraints>
-                                        <state key="normal" image="substration">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <state key="normal" title="-">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -195,10 +199,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgD-cl-ihC">
                                         <rect key="frame" x="118.5" y="0.0" width="49" height="49"/>
+                                        <color key="backgroundColor" red="0.30576315520000003" green="0.56876271960000002" blue="0.72314399480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YgD-cl-ihC" secondAttribute="height" multiplier="1:1" id="nBW-vr-NV1"/>
                                         </constraints>
-                                        <state key="normal" image="multi">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <state key="normal" title="x">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -207,10 +213,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1g-NX-obe">
                                         <rect key="frame" x="177.5" y="0.0" width="49" height="49"/>
+                                        <color key="backgroundColor" red="0.59493505950000003" green="0.51594859360000001" blue="0.89648503069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Q1g-NX-obe" secondAttribute="height" multiplier="1:1" id="g3m-En-4ga"/>
                                         </constraints>
-                                        <state key="normal" image="division">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <state key="normal" title="/">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -219,10 +227,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMj-Of-bCU">
                                         <rect key="frame" x="236.5" y="0.0" width="49.5" height="49"/>
+                                        <color key="backgroundColor" red="0.88914436100000005" green="0.6136447787" blue="0.17341065410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qMj-Of-bCU" secondAttribute="height" multiplier="1:1" id="ORH-Nb-nxj"/>
                                         </constraints>
-                                        <state key="normal" image="equal">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <state key="normal" title="=">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -231,10 +241,12 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rd8-IN-0el">
                                         <rect key="frame" x="296" y="0.0" width="49" height="49"/>
+                                        <color key="backgroundColor" red="0.9999160171" green="1" blue="0.99987202880000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rd8-IN-0el" secondAttribute="height" multiplier="1:1" id="3YO-Rf-LK4"/>
                                         </constraints>
-                                        <state key="normal" image="AC">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <state key="normal" title="AC">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
@@ -278,12 +290,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AC" width="40.5" height="40.5"/>
-        <image name="division" width="40.5" height="40.5"/>
-        <image name="equal" width="40.5" height="40.5"/>
-        <image name="multi" width="50" height="50"/>
-        <image name="plus" width="40.5" height="40.5"/>
-        <image name="substration" width="40.5" height="40.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
