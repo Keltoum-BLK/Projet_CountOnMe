@@ -16,13 +16,14 @@ class SimpleCalcTest: XCTestCase {
     override func setUp() {
         super.setUp()
         viewCOntroller = ViewController()
-    }
-    
-    func testGivenTextInTextView_WhenTappingOnButton_ThenPrintInTextView() {
-        
+        //créer un tableau elements our prendre pour accueillir les données pour les tests
+        //pour chaque test créer des valeurs différentes.
     }
     
     func testGivenOperatorAlertMessage_WhenAlreadyAddingAnOperator_ThenPrintAlertOperatorInView() {
+        //element = ["12", "+", "+", "56"]
+        
+        
         
     }
     
@@ -46,6 +47,41 @@ class SimpleCalcTest: XCTestCase {
     func testGivenDivision_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenResultingInTextView() {
         
     }
+    
+    func testGiven2Operand_WhenTheyFollowEachOther_ThenResultingAnAlertMessage() {
+        
+    }
+    
+    func testGivenAPriority_WhenAddingAMultiplicationInOperation_ThenResultingXFirst(){
+        
+    }
+    
+    func testGivenPriority_WhenAddingADivisionInOperation_ThenResultingDivisionFirst() {
+        
+    }
+    
+    func testGivenPriority_WhenAddingADivisionFirstWithAMultiplicationInOperation_ThenResultingDivisionFirst() {
+        
+    }
+    func testGivenPriority_WhenAddingAXFirstWithDivisionInOperation_ThenResultingDivisionFirst() {
+        
+    }
+    func testGivenManyAddition_WhenHavingSameOperand_ThenResultingAddition() {
+        
+    }
+    
+    func testGivenResetCalc_WhenTappingOnAC_ThenresultingAnEmptyArray() {
+        
+    }
+    
+    func testGivenAnAlert_WhenTappingOnACTwice_ThenresultingAMessagetoAdvice() {
+        
+    }
+    
+    func testGivenAErrorMessage_WhenEndingTheCalcWithAnOperand_ThenResultingAnAlertMessage(){
+        
+    }
+    
     
 }
 

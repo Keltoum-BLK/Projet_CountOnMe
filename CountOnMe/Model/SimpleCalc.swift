@@ -46,19 +46,11 @@ class SimpleCalc {
 //        
 //    }
    
-    func additionAction() {
+    func calcWithUserChoiceOperands() {
         
     }
     
-    func substrationAction() {
-        
-    }
-    
-    func multiplicationAction() {
-    
-    }
-    
-    func divisionAction() {
+    func doubleOperandFollow() {
         
     }
     

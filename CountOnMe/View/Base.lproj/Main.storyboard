@@ -169,90 +169,150 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ogr-Aw-e1h">
                                 <rect key="frame" x="15" y="583" width="345" height="49"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQU-P5-55X">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmI-s5-nQG">
                                         <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
-                                        <color key="backgroundColor" red="0.52205961940000001" green="0.79573774340000003" blue="0.69536799189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQU-P5-55X">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                                <color key="backgroundColor" red="0.52205961940000001" green="0.79573774340000003" blue="0.69536799189999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedAdditionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="V0J-eg-vQK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="DQU-P5-55X" secondAttribute="height" multiplier="1:1" id="1SX-Bk-haS"/>
+                                            <constraint firstAttribute="bottom" secondItem="DQU-P5-55X" secondAttribute="bottom" id="1tc-To-PV2"/>
+                                            <constraint firstItem="DQU-P5-55X" firstAttribute="top" secondItem="HmI-s5-nQG" secondAttribute="top" id="2BN-Hl-YHh"/>
+                                            <constraint firstItem="DQU-P5-55X" firstAttribute="leading" secondItem="HmI-s5-nQG" secondAttribute="leading" id="NU5-kv-U4B"/>
+                                            <constraint firstAttribute="trailing" secondItem="DQU-P5-55X" secondAttribute="trailing" id="fga-Pk-Vpn"/>
+                                            <constraint firstAttribute="width" secondItem="HmI-s5-nQG" secondAttribute="height" multiplier="1:1" id="jSe-fW-wZY"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <state key="normal" title="+">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tappedAdditionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="V0J-eg-vQK"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zr-HC-0N9">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4U2-RW-CKl">
                                         <rect key="frame" x="59" y="0.0" width="49.5" height="49"/>
-                                        <color key="backgroundColor" red="0.94495993850000004" green="0.35713273290000003" blue="0.33157521490000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zr-HC-0N9">
+                                                <rect key="frame" x="0.0" y="0.0" width="49.5" height="49"/>
+                                                <color key="backgroundColor" red="0.94495993850000004" green="0.35713273290000003" blue="0.33157521490000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <state key="normal" title="-">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedSubstractionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="KVX-AF-NVM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="3zr-HC-0N9" secondAttribute="height" multiplier="1:1" id="gRw-yc-dS4"/>
+                                            <constraint firstItem="3zr-HC-0N9" firstAttribute="top" secondItem="4U2-RW-CKl" secondAttribute="top" id="2ko-e3-Yuj"/>
+                                            <constraint firstAttribute="bottom" secondItem="3zr-HC-0N9" secondAttribute="bottom" id="34Q-cK-xe8"/>
+                                            <constraint firstAttribute="trailing" secondItem="3zr-HC-0N9" secondAttribute="trailing" id="Oa9-Xm-QUx"/>
+                                            <constraint firstAttribute="width" secondItem="4U2-RW-CKl" secondAttribute="height" multiplier="1:1" id="fxV-SE-6RF"/>
+                                            <constraint firstItem="3zr-HC-0N9" firstAttribute="leading" secondItem="4U2-RW-CKl" secondAttribute="leading" id="viQ-X4-u3x"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <state key="normal" title="-">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tappedSubstractionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="KVX-AF-NVM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgD-cl-ihC">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzp-sR-N8s">
                                         <rect key="frame" x="118.5" y="0.0" width="49" height="49"/>
-                                        <color key="backgroundColor" red="0.30576315520000003" green="0.56876271960000002" blue="0.72314399480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgD-cl-ihC">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                                <color key="backgroundColor" red="0.30576315520000003" green="0.56876271960000002" blue="0.72314399480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <state key="normal" title="x">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedMultiplicationButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="U5f-h3-hav"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="YgD-cl-ihC" secondAttribute="height" multiplier="1:1" id="nBW-vr-NV1"/>
+                                            <constraint firstAttribute="bottom" secondItem="YgD-cl-ihC" secondAttribute="bottom" id="6xx-0y-jEi"/>
+                                            <constraint firstAttribute="width" secondItem="zzp-sR-N8s" secondAttribute="height" multiplier="1:1" id="Htc-AO-bWz"/>
+                                            <constraint firstItem="YgD-cl-ihC" firstAttribute="leading" secondItem="zzp-sR-N8s" secondAttribute="leading" id="JP8-dd-fIe"/>
+                                            <constraint firstItem="YgD-cl-ihC" firstAttribute="top" secondItem="zzp-sR-N8s" secondAttribute="top" id="sEq-jV-OBX"/>
+                                            <constraint firstAttribute="trailing" secondItem="YgD-cl-ihC" secondAttribute="trailing" id="wpI-nr-ScS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <state key="normal" title="x">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tappedMultiplicationButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="U5f-h3-hav"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1g-NX-obe">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vD6-Sq-D4o">
                                         <rect key="frame" x="177.5" y="0.0" width="49" height="49"/>
-                                        <color key="backgroundColor" red="0.59493505950000003" green="0.51594859360000001" blue="0.89648503069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1g-NX-obe">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                                <color key="backgroundColor" red="0.59493505950000003" green="0.51594859360000001" blue="0.89648503069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <state key="normal" title="/">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedDivisionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="jtf-Qv-A8s"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Q1g-NX-obe" secondAttribute="height" multiplier="1:1" id="g3m-En-4ga"/>
+                                            <constraint firstItem="Q1g-NX-obe" firstAttribute="top" secondItem="vD6-Sq-D4o" secondAttribute="top" id="9xC-5m-08h"/>
+                                            <constraint firstItem="Q1g-NX-obe" firstAttribute="leading" secondItem="vD6-Sq-D4o" secondAttribute="leading" id="BDa-TF-BCb"/>
+                                            <constraint firstAttribute="bottom" secondItem="Q1g-NX-obe" secondAttribute="bottom" id="OEV-9O-ScV"/>
+                                            <constraint firstAttribute="width" secondItem="vD6-Sq-D4o" secondAttribute="height" multiplier="1:1" id="eW7-jX-0WF"/>
+                                            <constraint firstAttribute="trailing" secondItem="Q1g-NX-obe" secondAttribute="trailing" id="fsc-Cu-U6k"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <state key="normal" title="/">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tappedDivisionButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="jtf-Qv-A8s"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMj-Of-bCU">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ksX-l2-YzD">
                                         <rect key="frame" x="236.5" y="0.0" width="49.5" height="49"/>
-                                        <color key="backgroundColor" red="0.88914436100000005" green="0.6136447787" blue="0.17341065410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMj-Of-bCU">
+                                                <rect key="frame" x="0.0" y="0.0" width="49.5" height="49"/>
+                                                <color key="backgroundColor" red="0.88914436100000005" green="0.6136447787" blue="0.17341065410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <state key="normal" title="=">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedEqualButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="JgS-cl-T2a"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="qMj-Of-bCU" secondAttribute="height" multiplier="1:1" id="ORH-Nb-nxj"/>
+                                            <constraint firstItem="qMj-Of-bCU" firstAttribute="top" secondItem="ksX-l2-YzD" secondAttribute="top" id="CYI-xp-cDa"/>
+                                            <constraint firstItem="qMj-Of-bCU" firstAttribute="leading" secondItem="ksX-l2-YzD" secondAttribute="leading" id="bA0-SZ-AYL"/>
+                                            <constraint firstAttribute="width" secondItem="ksX-l2-YzD" secondAttribute="height" multiplier="1:1" id="kd8-bf-5os"/>
+                                            <constraint firstAttribute="bottom" secondItem="qMj-Of-bCU" secondAttribute="bottom" id="uJ1-8T-TDB"/>
+                                            <constraint firstAttribute="trailing" secondItem="qMj-Of-bCU" secondAttribute="trailing" id="wkW-nJ-KBo"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <state key="normal" title="=">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tappedEqualButton:" destination="eqK-jh-KKu" eventType="touchUpInside" id="JgS-cl-T2a"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rd8-IN-0el">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u01-8I-lKz">
                                         <rect key="frame" x="296" y="0.0" width="49" height="49"/>
-                                        <color key="backgroundColor" red="0.9999160171" green="1" blue="0.99987202880000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rd8-IN-0el">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                                <color key="backgroundColor" red="0.9999160171" green="1" blue="0.99987202880000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                <state key="normal" title="AC">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="resetCalc:" destination="eqK-jh-KKu" eventType="touchUpInside" id="t1g-F4-Hd0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="rd8-IN-0el" secondAttribute="height" multiplier="1:1" id="3YO-Rf-LK4"/>
+                                            <constraint firstItem="rd8-IN-0el" firstAttribute="top" secondItem="u01-8I-lKz" secondAttribute="top" id="0ic-N6-YBz"/>
+                                            <constraint firstItem="rd8-IN-0el" firstAttribute="leading" secondItem="u01-8I-lKz" secondAttribute="leading" id="2iM-br-bsx"/>
+                                            <constraint firstAttribute="width" secondItem="u01-8I-lKz" secondAttribute="height" multiplier="1:1" id="RhH-TK-Dwn"/>
+                                            <constraint firstAttribute="bottom" secondItem="rd8-IN-0el" secondAttribute="bottom" id="VBB-fE-yzd"/>
+                                            <constraint firstAttribute="trailing" secondItem="rd8-IN-0el" secondAttribute="trailing" id="x0T-3D-Crx"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <state key="normal" title="AC">
-                                            <color key="titleColor" systemColor="labelColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="resetCalc:" destination="eqK-jh-KKu" eventType="touchUpInside" id="t1g-F4-Hd0"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -292,6 +352,9 @@
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
