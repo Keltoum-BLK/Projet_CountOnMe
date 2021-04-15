@@ -12,39 +12,41 @@ import XCTest
 class SimpleCalcTest: XCTestCase {
     
     var viewCOntroller: ViewController!
+    var simpleCalc: SimpleCalc!
+    
+    var Tabtest = [String]()
     
     override func setUp() {
         super.setUp()
         viewCOntroller = ViewController()
+        simpleCalc = SimpleCalc()
         //créer un tableau elements our prendre pour accueillir les données pour les tests
         //pour chaque test créer des valeurs différentes.
     }
     
     func testGivenOperatorAlertMessage_WhenAlreadyAddingAnOperator_ThenPrintAlertOperatorInView() {
-        //element = ["12", "+", "+", "56"]
         
-        
+    }
+ 
+    
+    func testGivenAlertMessage_WhenExpressionHaveEnoughElements_ThenPrintAlert() {
         
     }
     
-    func testGivenAlertMessage_WhenExpressionHaveEnoughElements_ThenPrintAlertInView() {
+    func testGivenAddiction_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenPrintingResult() {
         
     }
     
-    func testGivenAddiction_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenResultingInTextView() {
-        
-    }
-    
-    func testGivenSubstraction_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenResultingInTextView() {
+    func testGivenSubstraction_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenPrintingResult() {
         
     }
     
     
-    func testGivenMultiplication_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenResultingInTextView() {
+    func testGivenMultiplication_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenPrintingResult() {
         
     }
     
-    func testGivenDivision_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenResultingInTextView() {
+    func testGivenDivision_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenPrintingResult() {
         
     }
     
@@ -60,13 +62,25 @@ class SimpleCalcTest: XCTestCase {
         
     }
     
-    func testGivenPriority_WhenAddingADivisionFirstWithAMultiplicationInOperation_ThenResultingDivisionFirst() {
+    func testGivenDivisionPriority_WhenHavingAMultiplicationInOperation_ThenResultingDivisionFirst() {
         
     }
-    func testGivenPriority_WhenAddingAXFirstWithDivisionInOperation_ThenResultingDivisionFirst() {
+    func testGivenMultiplyPriority_WhenAHavingADivisionInOperation_ThenResultingDivisionFirst() {
         
     }
-    func testGivenManyAddition_WhenHavingSameOperand_ThenResultingAddition() {
+    func testGivenMoreAddictions_WhenHavingSameOperand_ThenHavingResult() {
+        
+    }
+    
+    func testGivenMoreSubstrations_WhenHavingSameOperand_ThenHavingResult() {
+        
+    }
+    
+    func testGivenMoreMultiplications_WhenHavindSameOperand_ThenHavingResult() {
+        
+    }
+    
+    func testGivenMoreDivisions_WhenHavingSameOperand_ThenHavingResult() {
         
     }
     

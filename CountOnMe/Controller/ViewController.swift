@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
+    
+    var simpleCalc = SimpleCalc()
 
     var elements: [String] {
         return textView.text.split(separator: " ").map { "\($0)" }
@@ -97,6 +99,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedEqualButton(_ sender: UIButton) {
+        var operationToReduce = [String]()
+        
         guard expressionIsCorrect else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Entrez une expression correcte !", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -110,37 +114,38 @@ class ViewController: UIViewController {
         }
 
         // Create local copy of operations
-        var operationsToReduce = elements
-
-        // Iterate over operations while an operand still here
-        while operationsToReduce.count > 1 {
-            var prio = 0
-            if let index = operationsToReduce.firstIndex(where: {$0 == "x" || $0 == "/"}) {
-                prio = index - 1
-                print("operand prioritaire est à la place \(index)")
-                
-            }
-            let left = Int(operationsToReduce[prio])!
-            let operand = operationsToReduce[prio + 1]
-            let right = Int(operationsToReduce[prio + 2])!
-
-            let result: Int
-            switch operand {
-            case "+": result = left + right
-            case "-": result = left - right
-            case "x": result = left * right
-            case "/": result = left / right
-            default: fatalError("Unknown operator !")
-            }
-
-//            operationsToReduce = Array(operationsToReduce.dropFirst(3))
-            for _ in 1...3{
-                operationsToReduce.remove(at: prio)
-            }
-            operationsToReduce.insert("\(result)", at: prio)
-        }
-
-        textView.text.append(" = \(operationsToReduce.first!)")
+//        var operationsToReduce = elements
+//
+//        // Iterate over operations while an operand still here
+//        while operationsToReduce.count > 1 {
+//            var prio = 0
+//            if let index = operationsToReduce.firstIndex(where: {$0 == "x" || $0 == "/"}) {
+//                prio = index - 1
+//                print("operand prioritaire est à la place \(index)")
+//
+//            }
+//            let left = Int(operationsToReduce[prio])!
+//            let operand = operationsToReduce[prio + 1]
+//            let right = Int(operationsToReduce[prio + 2])!
+//
+//            let result: Int
+//            switch operand {
+//            case "+": result = left + right
+//            case "-": result = left - right
+//            case "x": result = left * right
+//            case "/": result = left / right
+//            default: fatalError("Unknown operator !")
+//            }
+//
+////            operationsToReduce = Array(operationsToReduce.dropFirst(3))
+//            for _ in 1...3{
+//                operationsToReduce.remove(at: prio)
+//            }
+//            operationsToReduce.insert("\(result)", at: prio)
+//        }
+        
+        operationToReduce = simpleCalc.calcWithUserChoiceOperands(tab: elements)
+        textView.text.append(" = \(operationToReduce.first!)")
     }
     
     
