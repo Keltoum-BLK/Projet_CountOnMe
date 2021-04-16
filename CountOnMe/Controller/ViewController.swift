@@ -43,6 +43,8 @@ class ViewController: UIViewController {
     // View Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        simpleCalc.delegate = self
+        
         // Do any additional setup after loading the view.
         
     }
@@ -53,6 +55,7 @@ class ViewController: UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
     }
+    
 
     // View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
@@ -61,16 +64,13 @@ class ViewController: UIViewController {
         if expressionHaveResult {
             textView.text = ""
         }
-
+        simpleCalc.textView.append(numberText)
         textView.text.append(numberText)
     }
 
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
-        if canAddOperator {
-            textView.text.append(" + ")
-        } else {
-           operatorAlreadyChoosen()
-        }
+//        
+        simpleCalc.tappedAdiction()
     }
 
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
@@ -99,7 +99,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        var operationToReduce = [String]()
         
         guard expressionIsCorrect else {
             let alertVC = UIAlertController(title: "Zéro!", message: "Entrez une expression correcte !", preferredStyle: .alert)
@@ -112,40 +111,8 @@ class ViewController: UIViewController {
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.present(alertVC, animated: true, completion: nil)
         }
-
-        // Create local copy of operations
-//        var operationsToReduce = elements
-//
-//        // Iterate over operations while an operand still here
-//        while operationsToReduce.count > 1 {
-//            var prio = 0
-//            if let index = operationsToReduce.firstIndex(where: {$0 == "x" || $0 == "/"}) {
-//                prio = index - 1
-//                print("operand prioritaire est à la place \(index)")
-//
-//            }
-//            let left = Int(operationsToReduce[prio])!
-//            let operand = operationsToReduce[prio + 1]
-//            let right = Int(operationsToReduce[prio + 2])!
-//
-//            let result: Int
-//            switch operand {
-//            case "+": result = left + right
-//            case "-": result = left - right
-//            case "x": result = left * right
-//            case "/": result = left / right
-//            default: fatalError("Unknown operator !")
-//            }
-//
-////            operationsToReduce = Array(operationsToReduce.dropFirst(3))
-//            for _ in 1...3{
-//                operationsToReduce.remove(at: prio)
-//            }
-//            operationsToReduce.insert("\(result)", at: prio)
-//        }
+        simpleCalc.calcWithUserChoiceOperands()
         
-        operationToReduce = simpleCalc.calcWithUserChoiceOperands(tab: elements)
-        textView.text.append(" = \(operationToReduce.first!)")
     }
     
     
@@ -160,6 +127,21 @@ class ViewController: UIViewController {
             print("deja effacé")
         }
     }
+    
+
+}
+
+extension ViewController: SimpleCalcDelegate {
+    func displayAlert(_ message: String) {
+        let alertVC = UIAlertController(title: "Erreur", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+    }
+    
+    func didReceiveData(_ data: String) {
+        textView.text = simpleCalc.textView
+    }
+    
     
 
 }

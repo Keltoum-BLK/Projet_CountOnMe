@@ -7,44 +7,100 @@
 //
 
 import Foundation
+protocol SimpleCalcDelegate: AnyObject {
+    
+    func didReceiveData(_ data: String)
+    func displayAlert(_ message : String)
+
+}
+
 
 class SimpleCalc {
     
-    private var _operationsToReduce = [String]()
+    weak var delegate: SimpleCalcDelegate?
+    
+    var textView = String()
+    
+    var elements: [String] {
+        return textView.split(separator: " ").map { "\($0)" }
+    }
+    
+    // Error check computed variables
+    var expressionIsCorrect: Bool {
+        return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
+    }
+
+    var expressionHaveEnoughElement: Bool {
+        return elements.count >= 3
+    }
+
+    var canAddOperator: Bool {
+        return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
+    }
+
+    var expressionHaveResult: Bool {
+        return textView.firstIndex(of: "=") != nil
+    }
+    
+    var alreadyReset : Bool {
+        return textView != ""
+    }
+    func sendToController(data: String) {
+        delegate?.didReceiveData(data)
+    }
+    
+    func displayAlertInController(message: String) {
+        delegate?.displayAlert(message)
+    }
     
     
-    func calcWithUserChoiceOperands( tab: [String]) -> [String] {
+    
+    func addNumber(number: String) {
+        if expressionHaveResult {
+            textView = ""
+        }
+        textView += number
+        sendToController(data: number)
+    }
+    
+    func tappedAdiction() {
+        if canAddOperator {
+            textView += " + "
+        }
+        return sendToController(data: "+")
+    }
+    
+    func calcWithUserChoiceOperands() {
+     var operationsToReduce = elements
         
-        _operationsToReduce = tab
-        
-        while _operationsToReduce.count > 1 {
+        while operationsToReduce.count > 1 {
             var prio = 0
-            if let index = _operationsToReduce.firstIndex(where: {$0 == "x" || $0 == "/"}) {
+            if let index = operationsToReduce.firstIndex(where: {$0 == "x" || $0 == "/"}) {
                 prio = index - 1
                 print("operand prioritaire est à la place \(index)")
                 
             }
-            let left = Int(_operationsToReduce[prio])!
-            let operand = _operationsToReduce[prio + 1]
-            let right = Int(_operationsToReduce[prio + 2])!
+            guard let left = Double(operationsToReduce[prio]) else { return }
+            let operand = operationsToReduce[prio + 1]
+            guard let right = Double(operationsToReduce[prio + 2]) else { return }
 
-            let result: Int
+            var result: Double = 0.00
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
             case "x": result = left * right
             case "/": result = left / right
-            default: fatalError("Unknown operator !")
+            default: delegate?.displayAlert("Opérateur inconnu")
             }
 
 //            operationsToReduce = Array(operationsToReduce.dropFirst(3))
             for _ in 1...3{
-                _operationsToReduce.remove(at: prio)
+                operationsToReduce.remove(at: prio)
             }
-            _operationsToReduce.insert("\(result)", at: prio)
+            operationsToReduce.insert("\(result)", at: prio)
         }
-        
-        return _operationsToReduce
+        textView.append(" = \(operationsToReduce.first!)")
+        sendToController(data: textView)
     }
     
     func doubleOperandFollow() {

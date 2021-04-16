@@ -11,14 +11,13 @@ import XCTest
 
 class SimpleCalcTest: XCTestCase {
     
-    var viewCOntroller: ViewController!
+ 
     var simpleCalc: SimpleCalc!
     
     var Tabtest = [String]()
     
     override func setUp() {
         super.setUp()
-        viewCOntroller = ViewController()
         simpleCalc = SimpleCalc()
         //créer un tableau elements our prendre pour accueillir les données pour les tests
         //pour chaque test créer des valeurs différentes.
