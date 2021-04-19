@@ -44,88 +44,45 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         simpleCalc.delegate = self
-        
-        // Do any additional setup after loading the view.
-        
-    }
-    
-    
-    private func operatorAlreadyChoosen() {
-        let alertVC = UIAlertController(title: "Zéro!", message: "Un operateur est déja mis !", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
     }
     
 
     // View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         guard let numberText = sender.title(for: .normal) else { return }
-
-        if expressionHaveResult {
-            textView.text = ""
-        }
-        simpleCalc.textView.append(numberText)
-        textView.text.append(numberText)
+        
+        simpleCalc.addNumber(number: numberText)
     }
 
     @IBAction func tappedAdditionButton(_ sender: UIButton) {
-//        
-        simpleCalc.tappedAdiction()
+        simpleCalc.tappedAddition()
     }
 
     @IBAction func tappedSubstractionButton(_ sender: UIButton) {
-        if canAddOperator {
-            textView.text.append(" - ")
-        } else {
-            operatorAlreadyChoosen()
-        }
+        simpleCalc.tappedSubstration()
     }
     
     
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
-        if canAddOperator {
-            textView.text.append(" x ")
-        } else {
-            operatorAlreadyChoosen()
-        }
+        simpleCalc.tappedMultiplication()
     }
     
     @IBAction func tappedDivisionButton(_ sender: UIButton) {
-        if canAddOperator {
-            textView.text.append(" / ")
-        } else {
-            operatorAlreadyChoosen()
-        }
+        simpleCalc.tappedDivision()
     }
     
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        
-        guard expressionIsCorrect else {
-            let alertVC = UIAlertController(title: "Zéro!", message: "Entrez une expression correcte !", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            return self.present(alertVC, animated: true, completion: nil)
-        }
-
-        guard expressionHaveEnoughElement else {
-            let alertVC = UIAlertController(title: "Zéro!", message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            return self.present(alertVC, animated: true, completion: nil)
-        }
-        simpleCalc.calcWithUserChoiceOperands()
-        
+        simpleCalc.calculator()
     }
     
     
     @IBAction func resetCalc(_ sender: UIButton) {
-        if alreadyReset {
-            textView.text = ""
-            print("Effacé")
-        } else {
-            let alertVC = UIAlertController(title: "Erreur", message: "Vous avez déjà effacer la dernière opération !", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alertVC, animated: true, completion: nil)
-            print("deja effacé")
-        }
+//        if alreadyReset {
+//            textView.text = ""
+//            print("Effacé")
+//        } else {
+//            displayAlert("Vous avez déjà effacer la dernière opération !")
+//        }
     }
     
 

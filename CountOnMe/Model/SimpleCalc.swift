@@ -45,6 +45,8 @@ class SimpleCalc {
     var alreadyReset : Bool {
         return textView != ""
     }
+    
+    
     func sendToController(data: String) {
         delegate?.didReceiveData(data)
     }
@@ -63,15 +65,48 @@ class SimpleCalc {
         sendToController(data: number)
     }
     
-    func tappedAdiction() {
+    func tappedAddition() {
         if canAddOperator {
             textView += " + "
+        } else {
+            displayAlertInController(message: "Un operateur est déja mis !")
         }
         return sendToController(data: "+")
     }
     
-    func calcWithUserChoiceOperands() {
+    func tappedSubstration() {
+        if canAddOperator {
+            textView += " - "
+        } else {
+            displayAlertInController(message: "Un operateur est déja mis !")
+        }
+        return sendToController(data: "-")
+    }
+    
+    func tappedMultiplication() {
+        if canAddOperator {
+            textView += " x "
+        } else {
+            displayAlertInController(message: "Un operateur est déja mis !")
+        }
+        return sendToController(data: "x")
+    }
+    
+    func tappedDivision() {
+        if canAddOperator {
+            textView += " / "
+        } else {
+            displayAlertInController(message: "Un operateur est déja mis !")
+        }
+        return sendToController(data: "/")
+        
+    }
+    
+    func calculator() {
      var operationsToReduce = elements
+        
+        guard expressionIsCorrect else { return  displayAlertInController(message: "Entrez une expression correcte !") }
+        guard expressionHaveEnoughElement else {  return displayAlertInController(message: "Démarrez un nouveau calcul !")}
         
         while operationsToReduce.count > 1 {
             var prio = 0
@@ -103,8 +138,13 @@ class SimpleCalc {
         sendToController(data: textView)
     }
     
-    func doubleOperandFollow() {
-        
+    func resetCalc() {
+        if alreadyReset {
+            textView += " "
+        } else {
+            displayAlertInController(message: "Vous avez déjà effacer la dernière opération !")
+        }
+        return sendToController(data: "")
     }
     
 }
