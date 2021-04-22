@@ -11,16 +11,13 @@ protocol SimpleCalcDelegate: AnyObject {
     
     func didReceiveData(_ data: String)
     func displayAlert(_ message : String)
-
 }
 
 
 class SimpleCalc {
     
     weak var delegate: SimpleCalcDelegate?
-    
     var textView = String()
-    
     var elements: [String] {
         return textView.split(separator: " ").map { "\($0)" }
     }
@@ -29,15 +26,15 @@ class SimpleCalc {
     var expressionIsCorrect: Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
     }
-
+    
     var expressionHaveEnoughElement: Bool {
         return elements.count >= 3
     }
-
+    
     var canAddOperator: Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
     }
-
+    
     var expressionHaveResult: Bool {
         return textView.firstIndex(of: "=") != nil
     }
@@ -54,9 +51,7 @@ class SimpleCalc {
     func displayAlertInController(message: String) {
         delegate?.displayAlert(message)
     }
-    
-    
-    
+
     func addNumber(number: String) {
         if expressionHaveResult {
             textView = ""
@@ -69,7 +64,7 @@ class SimpleCalc {
         if canAddOperator {
             textView += " + "
         } else {
-            displayAlertInController(message: "Un operateur est déja mis !")
+            delegate?.displayAlert("Un operateur est déja mis !")
         }
         return sendToController(data: "+")
     }
@@ -78,7 +73,7 @@ class SimpleCalc {
         if canAddOperator {
             textView += " - "
         } else {
-            displayAlertInController(message: "Un operateur est déja mis !")
+            delegate?.displayAlert("Un operateur est déja mis !")
         }
         return sendToController(data: "-")
     }
@@ -87,7 +82,7 @@ class SimpleCalc {
         if canAddOperator {
             textView += " x "
         } else {
-            displayAlertInController(message: "Un operateur est déja mis !")
+            delegate?.displayAlert("Un operateur est déja mis !")
         }
         return sendToController(data: "x")
     }
@@ -96,14 +91,14 @@ class SimpleCalc {
         if canAddOperator {
             textView += " / "
         } else {
-            displayAlertInController(message: "Un operateur est déja mis !")
+            delegate?.displayAlert("Un operateur est déja mis !")
         }
         return sendToController(data: "/")
         
     }
     
     func calculator() {
-     var operationsToReduce = elements
+        var operationsToReduce = elements
         
         guard expressionIsCorrect else { return  displayAlertInController(message: "Entrez une expression correcte !") }
         guard expressionHaveEnoughElement else {  return displayAlertInController(message: "Démarrez un nouveau calcul !")}
@@ -118,7 +113,7 @@ class SimpleCalc {
             guard let left = Double(operationsToReduce[prio]) else { return }
             let operand = operationsToReduce[prio + 1]
             guard let right = Double(operationsToReduce[prio + 2]) else { return }
-
+            
             var result: Double = 0.00
             switch operand {
             case "+": result = left + right
@@ -127,8 +122,8 @@ class SimpleCalc {
             case "/": result = left / right
             default: delegate?.displayAlert("Opérateur inconnu")
             }
-
-//            operationsToReduce = Array(operationsToReduce.dropFirst(3))
+            
+            //            operationsToReduce = Array(operationsToReduce.dropFirst(3))
             for _ in 1...3{
                 operationsToReduce.remove(at: prio)
             }
@@ -139,12 +134,14 @@ class SimpleCalc {
     }
     
     func resetCalc() {
-        if alreadyReset {
-            textView += " "
-        } else {
-            displayAlertInController(message: "Vous avez déjà effacer la dernière opération !")
-        }
-        return sendToController(data: "")
+            if alreadyReset {
+                    textView = ""
+                } else {
+                    delegate?.displayAlert("Vous avez déjà effacé le calcul.")
+                }
+            return sendToController(data: textView)
+        
+        
     }
     
 }
