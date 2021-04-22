@@ -9,19 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    //IBOULET
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
-    
+   
+    //variable to use the model methods 
     var simpleCalc = SimpleCalc()    
     
-    // View Life cycles
+    //MARK: View Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         simpleCalc.delegate = self
     }
     
     
-    // View actions
+    // MARK: View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         guard let numberText = sender.title(for: .normal) else { return }
         
@@ -55,7 +57,8 @@ class ViewController: UIViewController {
     }
     
 }
-
+//MARK: Delegate methods
+// extention of ViewController to communicate between model and the controller.
 extension ViewController: SimpleCalcDelegate {
     
     func displayAlert(_ message: String) {

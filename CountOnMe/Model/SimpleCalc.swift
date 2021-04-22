@@ -7,54 +7,58 @@
 //
 
 import Foundation
+//MARK: protocle to communicate with the viewCOntroller
 protocol SimpleCalcDelegate: AnyObject {
-    
+   //methods to communicate the data to ViewController
     func didReceiveData(_ data: String)
     func displayAlert(_ message : String)
 }
 
 
 class SimpleCalc {
-    
+
+//MARK: Variables used to check and run the code
+    //variables using to run the code
     weak var delegate: SimpleCalcDelegate?
     var textView = String()
     var elements: [String] {
         return textView.split(separator: " ").map { "\($0)" }
     }
+    var result: Double = 0.00
     
-    // Error check computed variables
-    var expressionIsCorrect: Bool {
+    // Error check computed private variables
+     private var expressionIsCorrect: Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
     }
     
-    var expressionHaveEnoughElement: Bool {
+    private var expressionHaveEnoughElement: Bool {
         return elements.count >= 3
     }
     
-    var canAddOperator: Bool {
+    private var canAddOperator: Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
     }
     
-    var expressionHaveResult: Bool {
+    private var expressionHaveResult: Bool {
         return textView.firstIndex(of: "=") != nil
     }
     
-    var alreadyReset : Bool {
+    private var alreadyReset : Bool {
         return textView != ""
     }
     
-    var dontOperandFirst: Bool {
+    private var dontOperandFirst: Bool {
         return elements.count >= 1
     }
-    
-    func sendToController(data: String) {
+   //MARK: Delegate methods to send data to ViewController
+   private func sendToController(data: String) {
         delegate?.didReceiveData(data)
     }
     
-    func displayAlertInController(message: String) {
+  private func displayAlertInController(message: String) {
         delegate?.displayAlert(message)
     }
-
+    //MARK: methods to add a number, add an operand addition, substration,  multiplication and division.
     func addNumber(number: String) {
         if expressionHaveResult {
             textView = ""
@@ -64,71 +68,29 @@ class SimpleCalc {
     }
     
     func tappedAddition() {
-        
         addOperand("+")
-//        if expressionHaveResult {
-//            textView = ""
-//        }
-//        if canAddOperator {
-//            if dontOperandFirst {
-//            textView += " + "
-//            } else {
-//                delegate?.displayAlert("Entrez un nombre")
-//            }
-//        } else {
-//            delegate?.displayAlert("Un operateur est déja mis !")
-//        }
-//        return sendToController(data: "+")
     }
     
     func tappedSubstration() {
-        if canAddOperator {
-            if dontOperandFirst {
-            textView += " - "
-            } else {
-                delegate?.displayAlert("Entrez un nombre")
-            }
-        } else {
-            delegate?.displayAlert("Un operateur est déja mis !")
-        }
-        return sendToController(data: "-")
+        addOperand("-")
     }
     
     func tappedMultiplication() {
-        if canAddOperator {
-            if dontOperandFirst {
-            textView += " x "
-            } else {
-                delegate?.displayAlert("Entrez un nombre")
-            }
-        } else {
-            delegate?.displayAlert("Un operateur est déja mis !")
-        }
-        return sendToController(data: "x")
+        addOperand("x")
     }
     
     func tappedDivision() {
-        if canAddOperator {
-            if dontOperandFirst {
-            textView += " / "
-            } else {
-                delegate?.displayAlert("Entrez un nombre")
-            }
-        } else {
-            delegate?.displayAlert("Un operateur est déja mis !")
-        }
-        return sendToController(data: "/")
-        
+        addOperand("/")
     }
-    
-    func addOperand(_ operand: String){
+    //method to factorize the methods of adding operators
+    private func addOperand(_ operand: String){
         let spaceOperator = " " + operand + " "
         if expressionHaveResult {
             textView = ""
         }
         if canAddOperator {
             if dontOperandFirst {
-            textView += spaceOperator
+                textView += spaceOperator
             } else {
                 delegate?.displayAlert("Entrez un nombre")
             }
@@ -137,7 +99,7 @@ class SimpleCalc {
         }
         return sendToController(data: operand)
     }
-    
+    //method to calculate when there have got enough elements.
     func calculator() {
         var operationsToReduce = elements
         
@@ -155,7 +117,6 @@ class SimpleCalc {
             let operand = operationsToReduce[prio + 1]
             guard let right = Double(operationsToReduce[prio + 2]) else { return }
             
-            var result: Double = 0.00
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
@@ -165,7 +126,6 @@ class SimpleCalc {
                 return
             }
             
-            //            operationsToReduce = Array(operationsToReduce.dropFirst(3))
             for _ in 1...3{
                 operationsToReduce.remove(at: prio)
             }
@@ -174,14 +134,14 @@ class SimpleCalc {
         textView.append(" = \(operationsToReduce.first!)")
         sendToController(data: textView)
     }
-    
+   // method to reset the calculation and start a new one at any moment.
     func resetCalc() {
-            if alreadyReset {
-                    textView = ""
-                } else {
-                    delegate?.displayAlert("Vous avez déjà effacé le calcul.")
-                }
-            return sendToController(data: textView)
+        if alreadyReset {
+            textView = ""
+        } else {
+            delegate?.displayAlert("Vous avez déjà effacé le calcul.")
+        }
+        return sendToController(data: textView)
         
         
     }

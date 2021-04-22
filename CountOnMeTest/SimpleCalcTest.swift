@@ -14,38 +14,33 @@ class SimpleCalcTest: XCTestCase {
  
     var simpleCalc: SimpleCalc!
     
-    var Tabtest = [String]()
+    var tabtest = [String]()
     
     override func setUp() {
         super.setUp()
         simpleCalc = SimpleCalc()
+        tabtest = simpleCalc.elements
         //créer un tableau elements our prendre pour accueillir les données pour les tests
         //pour chaque test créer des valeurs différentes.
     }
     
-    func testGivenOperatorAlertMessage_WhenAlreadyAddingAnOperator_ThenPrintAlertOperatorInView() {
-        
-    }
- 
-    
-    func testGivenAlertMessage_WhenExpressionHaveEnoughElements_ThenPrintAlert() {
-        
+
+//MARK: TESTS TO CHECK EVERY FUNCTIONNABILITIES OF SIMPLECALC CLASS
+    func testGivenAddiction_WhenHavingOperatorPlus_ThenPrintingResult() {
+
+       
     }
     
-    func testGivenAddiction_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenPrintingResult() {
-        
-    }
-    
-    func testGivenSubstraction_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenPrintingResult() {
+    func testGivenSubstraction_WhenHavingOperatorLess_ThenPrintingResult() {
         
     }
     
     
-    func testGivenMultiplication_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenPrintingResult() {
+    func testGivenMultiplication_WhenHavingOperatorTime_ThenPrintingResult() {
         
     }
     
-    func testGivenDivision_WhenTappingOnButtonsAndSelectingTheOperatorPlus_ThenPrintingResult() {
+    func testGivenDivision_WhenHavingOperatorDivision_ThenPrintingResult() {
         
     }
     
