@@ -43,6 +43,9 @@ class SimpleCalc {
         return textView != ""
     }
     
+    var dontOperandFirst: Bool {
+        return elements.count >= 1
+    }
     
     func sendToController(data: String) {
         delegate?.didReceiveData(data)
@@ -61,17 +64,30 @@ class SimpleCalc {
     }
     
     func tappedAddition() {
-        if canAddOperator {
-            textView += " + "
-        } else {
-            delegate?.displayAlert("Un operateur est déja mis !")
-        }
-        return sendToController(data: "+")
+        
+        addOperand("+")
+//        if expressionHaveResult {
+//            textView = ""
+//        }
+//        if canAddOperator {
+//            if dontOperandFirst {
+//            textView += " + "
+//            } else {
+//                delegate?.displayAlert("Entrez un nombre")
+//            }
+//        } else {
+//            delegate?.displayAlert("Un operateur est déja mis !")
+//        }
+//        return sendToController(data: "+")
     }
     
     func tappedSubstration() {
         if canAddOperator {
+            if dontOperandFirst {
             textView += " - "
+            } else {
+                delegate?.displayAlert("Entrez un nombre")
+            }
         } else {
             delegate?.displayAlert("Un operateur est déja mis !")
         }
@@ -80,7 +96,11 @@ class SimpleCalc {
     
     func tappedMultiplication() {
         if canAddOperator {
+            if dontOperandFirst {
             textView += " x "
+            } else {
+                delegate?.displayAlert("Entrez un nombre")
+            }
         } else {
             delegate?.displayAlert("Un operateur est déja mis !")
         }
@@ -89,12 +109,33 @@ class SimpleCalc {
     
     func tappedDivision() {
         if canAddOperator {
+            if dontOperandFirst {
             textView += " / "
+            } else {
+                delegate?.displayAlert("Entrez un nombre")
+            }
         } else {
             delegate?.displayAlert("Un operateur est déja mis !")
         }
         return sendToController(data: "/")
         
+    }
+    
+    func addOperand(_ operand: String){
+        let spaceOperator = " " + operand + " "
+        if expressionHaveResult {
+            textView = ""
+        }
+        if canAddOperator {
+            if dontOperandFirst {
+            textView += spaceOperator
+            } else {
+                delegate?.displayAlert("Entrez un nombre")
+            }
+        } else {
+            delegate?.displayAlert("Un operateur est déja mis !")
+        }
+        return sendToController(data: operand)
     }
     
     func calculator() {
@@ -120,7 +161,8 @@ class SimpleCalc {
             case "-": result = left - right
             case "x": result = left * right
             case "/": result = left / right
-            default: delegate?.displayAlert("Opérateur inconnu")
+            default: delegate?.displayAlert("Démarrer un nouveau calcul.")
+                return
             }
             
             //            operationsToReduce = Array(operationsToReduce.dropFirst(3))
