@@ -55,7 +55,7 @@ class SimpleCalc {
         delegate?.didReceiveData(data)
     }
     
-  private func displayAlertInController(message: String) {
+  func displayAlertInController(message: String) {
         delegate?.displayAlert(message)
     }
     //MARK: methods to add a number, add an operand addition, substration,  multiplication and division.

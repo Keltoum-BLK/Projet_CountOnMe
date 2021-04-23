@@ -19,28 +19,221 @@ class SimpleCalcTest: XCTestCase {
     override func setUp() {
         super.setUp()
         simpleCalc = SimpleCalc()
-        tabtest = simpleCalc.elements
-        //créer un tableau elements our prendre pour accueillir les données pour les tests
-        //pour chaque test créer des valeurs différentes.
+ 
     }
     
 
-//MARK: TESTS TO CHECK EVERY FUNCTIONNABILITIES OF SIMPLECALC CLASS
+//MARK: TESTS OPERATIONS OF CALCULATIONS OF SIMPLECALC CLASS
     func testGivenAddiction_WhenHavingOperatorPlus_ThenPrintingResult() {
-
+        simpleCalc.addNumber(number: "4")
+        simpleCalc.tappedAddition()
+        simpleCalc.addNumber(number: "5")
+        
+        simpleCalc.calculator()
        
+        
+        XCTAssert(simpleCalc.result == 9)
     }
     
     func testGivenSubstraction_WhenHavingOperatorLess_ThenPrintingResult() {
+        simpleCalc.addNumber(number: "3")
+        simpleCalc.tappedSubstration()
+        simpleCalc.addNumber(number: "2")
         
+        simpleCalc.calculator()
+       
+        
+        XCTAssert(simpleCalc.result == 1)
     }
     
     
     func testGivenMultiplication_WhenHavingOperatorTime_ThenPrintingResult() {
+        simpleCalc.addNumber(number: "3")
+        simpleCalc.tappedMultiplication()
+        simpleCalc.addNumber(number: "2")
         
+        simpleCalc.calculator()
+       
+        
+        XCTAssert(simpleCalc.result == 6)
     }
     
     func testGivenDivision_WhenHavingOperatorDivision_ThenPrintingResult() {
+        simpleCalc.addNumber(number: "6")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "2")
+        
+        simpleCalc.calculator()
+       
+        
+        XCTAssert(simpleCalc.result == 3)
+    }
+    
+    func testGivenSubstration_WhenhavingASubstration_ThenResultingANegativeNumber() {
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedSubstration()
+        simpleCalc.addNumber(number: "4")
+        
+        simpleCalc.calculator()
+        
+        XCTAssert(simpleCalc.result == -2)
+    }
+    
+    func testGivenAPriority_WhenTimeOperationWithAPlusOperand_ThenResultingXFirst(){
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedAddition()
+        simpleCalc.addNumber(number: "1")
+        simpleCalc.tappedMultiplication()
+        simpleCalc.addNumber(number: "3")
+        
+        simpleCalc.calculator()
+        
+        
+        XCTAssert(simpleCalc.result == 5)
+    }
+    
+    func testGivenPriority_WhenADivisionOperationWithPlusOperand_ThenResultingDivisionFirst() {
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedAddition()
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "2")
+        
+        simpleCalc.calculator()
+        
+        
+        XCTAssert(simpleCalc.result == 3)
+        
+    }
+    func testGivenAPriority_WhenTimeOperationWithALessOperand_ThenResultingXFirst(){
+        simpleCalc.addNumber(number: "10")
+        simpleCalc.tappedSubstration()
+        simpleCalc.addNumber(number: "3")
+        simpleCalc.tappedMultiplication()
+        simpleCalc.addNumber(number: "3")
+        
+        simpleCalc.calculator()
+        
+        
+        XCTAssert(simpleCalc.result == 1)
+    }
+    
+    
+    func testGivenADecimalResult_WhenSubstrateInAnOperation_ThenHavingAResult() {
+        simpleCalc.addNumber(number: "1")
+        simpleCalc.tappedSubstration()
+        simpleCalc.addNumber(number: "1")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "2")
+        
+        simpleCalc.calculator()
+        
+        XCTAssert(simpleCalc.result == 0.5)
+    }
+    
+    
+    func testGivenPriority_WhenADivisionOperationWithLessOperand_ThenResultingDivisionFirst() {
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedSubstration()
+        simpleCalc.addNumber(number: "3")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "3")
+        
+        simpleCalc.calculator()
+        
+        
+        XCTAssert(simpleCalc.result == 1)
+    }
+    func testGivenDivisionPriority_WhenHavingAMultiplicationInOperation_ThenResultingDivisionFirst() {
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedMultiplication()
+        simpleCalc.addNumber(number: "3")
+        
+        simpleCalc.calculator()
+        
+        
+        XCTAssert(simpleCalc.result == 3)
+        
+    }
+    func testGivenMoreAddictions_WhenHavingSameOperand_ThenHavingResult() {
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedAddition()
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedAddition()
+        simpleCalc.addNumber(number: "3")
+        
+        simpleCalc.calculator()
+        
+        
+        XCTAssert(simpleCalc.result == 7)
+        
+    }
+    
+    func testGivenFIrstSubstrations_WhenHavingSameOperand_ThenHavingResult() {
+        simpleCalc.addNumber(number: "4")
+        simpleCalc.tappedSubstration()
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedSubstration()
+        simpleCalc.addNumber(number: "1")
+        
+        simpleCalc.calculator()
+        
+        
+        XCTAssert(simpleCalc.result == 1)
+        
+    }
+    
+    func testGivenFirstMultiplications_WhenHavindSameOperand_ThenHavingResult() {
+        simpleCalc.addNumber(number: "4")
+        simpleCalc.tappedMultiplication()
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedMultiplication()
+        simpleCalc.addNumber(number: "1")
+        
+        simpleCalc.calculator()
+        
+        
+        XCTAssert(simpleCalc.result == 8)
+        
+    }
+    
+    func testGivenMoreDivisions_WhenHavingSameOperand_ThenHavingResult() {
+        simpleCalc.addNumber(number: "20")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "4")
+        
+        simpleCalc.calculator()
+        
+        
+        XCTAssert(simpleCalc.result == 2.5)
+    }
+    
+    func testGivenResetCalc_WhenAskingAReset_ThenStartingANewCalc() {
+        
+        simpleCalc.resetCalc()
+        
+        XCTAssertEqual(simpleCalc.result == 0.0, simpleCalc.textView == "")
+        
+    }
+    //MARK: TESTS FOR ALERT MESSAGES
+    
+    func testGivenAlert_WhenAskingTwiceToReset_ThenPrintAlertMessage() {
+        simpleCalc.resetCalc()
+        simpleCalc.resetCalc()
+        
+        XCTAssertEqual(simpleCalc.result == 0.0, simpleCalc.textView == "")
+    }
+    
+    func testGivenAlert_WhenAddingAnOperandBefore_ThenResultingAMessage() {
+      
+        
+    }
+    
+    func testGivenAlert_WhenAddingAnOperandAfterResult_ThenResultingAMessage() {
         
     }
     
@@ -48,47 +241,6 @@ class SimpleCalcTest: XCTestCase {
         
     }
     
-    func testGivenAPriority_WhenAddingAMultiplicationInOperation_ThenResultingXFirst(){
-        
-    }
-    
-    func testGivenPriority_WhenAddingADivisionInOperation_ThenResultingDivisionFirst() {
-        
-    }
-    
-    func testGivenDivisionPriority_WhenHavingAMultiplicationInOperation_ThenResultingDivisionFirst() {
-        
-    }
-    func testGivenMultiplyPriority_WhenAHavingADivisionInOperation_ThenResultingDivisionFirst() {
-        
-    }
-    func testGivenMoreAddictions_WhenHavingSameOperand_ThenHavingResult() {
-        
-    }
-    
-    func testGivenMoreSubstrations_WhenHavingSameOperand_ThenHavingResult() {
-        
-    }
-    
-    func testGivenMoreMultiplications_WhenHavindSameOperand_ThenHavingResult() {
-        
-    }
-    
-    func testGivenMoreDivisions_WhenHavingSameOperand_ThenHavingResult() {
-        
-    }
-    
-    func testGivenResetCalc_WhenTappingOnAC_ThenresultingAnEmptyArray() {
-        
-    }
-    
-    func testGivenAnAlert_WhenTappingOnACTwice_ThenresultingAMessagetoAdvice() {
-        
-    }
-    
-    func testGivenAErrorMessage_WhenEndingTheCalcWithAnOperand_ThenResultingAnAlertMessage(){
-        
-    }
     
     
 }
