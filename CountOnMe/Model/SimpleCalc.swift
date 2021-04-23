@@ -92,10 +92,10 @@ class SimpleCalc {
             if dontOperandFirst {
                 textView += spaceOperator
             } else {
-                delegate?.displayAlert("Entrez un nombre")
+                displayAlertInController(message: "Entrez un nombre")
             }
         } else {
-            delegate?.displayAlert("Un operateur est déja mis !")
+          displayAlertInController(message: "Un operateur est déja mis !")
         }
         return sendToController(data: operand)
     }
@@ -122,7 +122,7 @@ class SimpleCalc {
             case "-": result = left - right
             case "x": result = left * right
             case "/": result = left / right
-            default: delegate?.displayAlert("Démarrer un nouveau calcul.")
+            default: displayAlertInController(message: "Démarrer un nouveau calcul.")
                 return
             }
             
@@ -139,7 +139,7 @@ class SimpleCalc {
         if alreadyReset {
             textView = ""
         } else {
-            delegate?.displayAlert("Vous avez déjà effacé le calcul.")
+            displayAlertInController(message: "Vous avez déjà effacé le calcul.")
         }
         return sendToController(data: textView)
         

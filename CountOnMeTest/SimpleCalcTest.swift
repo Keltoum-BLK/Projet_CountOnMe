@@ -22,6 +22,9 @@ class SimpleCalcTest: XCTestCase {
  
     }
     
+    override class func tearDown() {
+        super.tearDown()
+    }
 
 //MARK: TESTS OPERATIONS OF CALCULATIONS OF SIMPLECALC CLASS
     func testGivenAddiction_WhenHavingOperatorPlus_ThenPrintingResult() {
@@ -229,6 +232,9 @@ class SimpleCalcTest: XCTestCase {
     }
     
     func testGivenAlert_WhenAddingAnOperandBefore_ThenResultingAMessage() {
+        simpleCalc.tappedMultiplication()
+        
+        XCTAssertEqual(simpleCalc.result == 0.0, simpleCalc.displayAlertInController(message: "Entrez un nombre") == simpleCalc.displayAlertInController(message: "Entrez un nombre"))
        
     }
     
@@ -246,7 +252,11 @@ class SimpleCalcTest: XCTestCase {
     }
     
     func testGiven2Operand_WhenTheyFollowEachOther_ThenResultingAnAlertMessage() {
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedAddition()
+        simpleCalc.tappedAddition()
         
+        XCTAssertEqual(simpleCalc.result == 0.0,  simpleCalc.displayAlertInController(message: "Un operateur est déja mis !") == simpleCalc.displayAlertInController(message: "Un operateur est déja mis !"))
     }
     
     
