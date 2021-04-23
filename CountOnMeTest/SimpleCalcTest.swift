@@ -229,11 +229,19 @@ class SimpleCalcTest: XCTestCase {
     }
     
     func testGivenAlert_WhenAddingAnOperandBefore_ThenResultingAMessage() {
-      
-        
+       
     }
     
     func testGivenAlert_WhenAddingAnOperandAfterResult_ThenResultingAMessage() {
+        simpleCalc.addNumber(number: "1")
+        simpleCalc.tappedAddition()
+        simpleCalc.addNumber(number: "2")
+        
+        simpleCalc.calculator()
+        
+        simpleCalc.tappedAddition()
+        
+        XCTAssertEqual(simpleCalc.textView == "", simpleCalc.result == 3)
         
     }
     
