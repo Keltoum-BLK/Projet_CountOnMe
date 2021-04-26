@@ -64,12 +64,6 @@ class SimpleCalc {
         if expressionHaveResult {
             textView = ""
         }
-//        if textView <= textView.prefix(10) {
-//            textView += number
-//        } else {
-//            textView = ""
-//            displayAlertInController(message: "Your number must not exceed 10 numbers. you can go up to 9,999,999,999.")
-//        }
         textView += number
         sendToController(data: number)
     }
@@ -141,6 +135,7 @@ class SimpleCalc {
         textView.append(" = \(operationsToReduce.first!)")
         sendToController(data: textView)
     }
+    
    // method to reset the calculation and start a new one at any moment.
     func resetCalc() {
         if alreadyReset {
