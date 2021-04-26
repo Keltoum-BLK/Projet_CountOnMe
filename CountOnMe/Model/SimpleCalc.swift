@@ -58,6 +58,7 @@ class SimpleCalc {
   func displayAlertInController(message: String) {
         delegate?.displayAlert(message)
     }
+    
     //MARK: methods to add a number, add an operand addition, substration,  multiplication and division.
     func addNumber(number: String) {
         if expressionHaveResult {
@@ -92,10 +93,10 @@ class SimpleCalc {
             if dontOperandFirst {
                 textView += spaceOperator
             } else {
-                displayAlertInController(message: "Entrez un nombre")
+                displayAlertInController(message: "Enter a number")
             }
         } else {
-          displayAlertInController(message: "Un operateur est déja mis !")
+          displayAlertInController(message: "An operator is already set")
         }
         return sendToController(data: operand)
     }
@@ -103,14 +104,14 @@ class SimpleCalc {
     func calculator() {
         var operationsToReduce = elements
         
-        guard expressionIsCorrect else { return  displayAlertInController(message: "Entrez une expression correcte !") }
-        guard expressionHaveEnoughElement else {  return displayAlertInController(message: "Démarrez un nouveau calcul !")}
+        guard expressionIsCorrect else { return  displayAlertInController(message: "Enter a correct expression !") }
+        guard expressionHaveEnoughElement else {  return displayAlertInController(message: "Start a new calculation !")}
         
         while operationsToReduce.count > 1 {
             var prio = 0
             if let index = operationsToReduce.firstIndex(where: {$0 == "x" || $0 == "/"}) {
                 prio = index - 1
-                print("operand prioritaire est à la place \(index)")
+                print("priority operand is instead \(index)")
                 
             }
             guard let left = Double(operationsToReduce[prio]) else { return }
@@ -122,7 +123,7 @@ class SimpleCalc {
             case "-": result = left - right
             case "x": result = left * right
             case "/": result = left / right
-            default: displayAlertInController(message: "Démarrer un nouveau calcul.")
+            default: displayAlertInController(message: "Start a new calculation !")
                 return
             }
             
@@ -139,11 +140,9 @@ class SimpleCalc {
         if alreadyReset {
             textView = ""
         } else {
-            displayAlertInController(message: "Vous avez déjà effacé le calcul.")
+            displayAlertInController(message: "You have already cleared the calculation.")
         }
         return sendToController(data: textView)
-        
-        
     }
     
 }

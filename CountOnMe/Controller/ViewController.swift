@@ -22,7 +22,6 @@ class ViewController: UIViewController {
         simpleCalc.delegate = self
     }
     
-    
     // MARK: View actions
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         guard let numberText = sender.title(for: .normal) else { return }
@@ -38,7 +37,6 @@ class ViewController: UIViewController {
         simpleCalc.tappedSubstration()
     }
     
-    
     @IBAction func tappedMultiplicationButton(_ sender: UIButton) {
         simpleCalc.tappedMultiplication()
     }
@@ -51,11 +49,9 @@ class ViewController: UIViewController {
         simpleCalc.calculator()
     }
     
-    
     @IBAction func resetCalc(_ sender: UIButton) {
         simpleCalc.resetCalc()
     }
-    
 }
 //MARK: Delegate methods
 // extention of ViewController to communicate between model and the controller.
@@ -70,6 +66,4 @@ extension ViewController: SimpleCalcDelegate {
     func didReceiveData(_ data: String) {
         textView.text = simpleCalc.textView
     }
-    
-    
 }
