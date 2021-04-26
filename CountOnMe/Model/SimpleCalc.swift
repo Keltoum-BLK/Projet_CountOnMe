@@ -64,7 +64,12 @@ class SimpleCalc {
         if expressionHaveResult {
             textView = ""
         }
-        textView += number
+        if textView <= textView.prefix(10) {
+            textView += number
+        } else {
+            textView = ""
+            displayAlertInController(message: "Your number must not exceed 10 numbers. you can go up to 9,999,999,999.")
+        }
         sendToController(data: number)
     }
     
@@ -134,6 +139,19 @@ class SimpleCalc {
         }
         textView.append(" = \(operationsToReduce.first!)")
         sendToController(data: textView)
+    }
+    
+    func controlNumberOfCalculations() {
+        if elements.count == 3 {
+            calculator()
+        } else if elements.count <= 20{
+            calculator()
+            print(elements.count)
+        } else {
+            textView = ""
+            sendToController(data: textView)
+            displayAlertInController(message: "You have got to reduce the number of operations in the same time. Max 20")
+        }
     }
    // method to reset the calculation and start a new one at any moment.
     func resetCalc() {

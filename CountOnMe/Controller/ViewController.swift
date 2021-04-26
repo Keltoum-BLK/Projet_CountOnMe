@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedEqualButton(_ sender: UIButton) {
-        simpleCalc.calculator()
+        simpleCalc.controlNumberOfCalculations()
     }
     
     @IBAction func resetCalc(_ sender: UIButton) {

@@ -181,6 +181,23 @@ class SimpleCalcTest: XCTestCase {
         
         XCTAssert(simpleCalc.result == 2.5)
     }
+    
+    func testGivenMoreOperations_WhenHavingMoreOperand_ThenHavingResult() {
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedAddition()
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedSubstration()
+        simpleCalc.addNumber(number: "1")
+        simpleCalc.tappedMultiplication()
+        simpleCalc.addNumber(number: "1")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "1")
+        
+        simpleCalc.calculator()
+        
+        XCTAssert(simpleCalc.result == 3)
+    }
+    
     func testGivenResetCalc_WhenAskingAReset_ThenStartingANewCalc() {
         
         simpleCalc.resetCalc()
@@ -221,5 +238,7 @@ class SimpleCalcTest: XCTestCase {
         
         XCTAssertEqual(simpleCalc.result == 0.0,  simpleCalc.displayAlertInController(message: "An operator is already set !") == simpleCalc.displayAlertInController(message: "An operator is already set !"))
     }
+    
+    
 }
 
