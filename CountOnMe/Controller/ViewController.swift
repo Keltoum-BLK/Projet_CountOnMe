@@ -58,7 +58,7 @@ class ViewController: UIViewController {
 extension ViewController: SimpleCalcDelegate {
     
     func displayAlert(_ message: String) {
-        let alertVC = UIAlertController(title: "Erreur", message: message, preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
     }
