@@ -239,6 +239,5 @@ class SimpleCalcTest: XCTestCase {
         XCTAssertEqual(simpleCalc.result == 0.0,  simpleCalc.displayAlertInController(message: "An operator is already set !") == simpleCalc.displayAlertInController(message: "An operator is already set !"))
     }
     
-    
 }
 
