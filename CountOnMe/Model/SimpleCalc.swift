@@ -117,12 +117,12 @@ class SimpleCalc {
             guard let left = Double(operationsToReduce[prio]) else { return }
             let operand = operationsToReduce[prio + 1]
             guard let right = Double(operationsToReduce[prio + 2]) else { return }
-            
+           
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
             case "x": result = left * right
-            case "/": result = left / right
+            case "/": result = division(left: left, right: right)
             default: displayAlertInController(message: "Start a new calculation !")
                 return
             }
@@ -134,6 +134,21 @@ class SimpleCalc {
         }
         textView.append(" = \(operationsToReduce.first!)")
         sendToController(data: textView)
+     
+        
+    }
+    
+    func division(left: Double, right: Double) -> Double {
+        print(expressionHaveResult)
+        if right == 0 {
+            result = 0.00
+            textView = "Error"
+            displayAlertInController(message: "You can't divise per 0, try a new calculation.")
+            print(expressionHaveResult)
+        } else {
+            result = left / right
+        }
+        return result
     }
     
    // method to reset the calculation and start a new one at any moment.

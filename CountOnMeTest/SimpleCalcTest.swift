@@ -13,16 +13,17 @@ class SimpleCalcTest: XCTestCase {
     
     var simpleCalc: SimpleCalc!
     
-    var tabtest = [String]()
-    
     override func setUp() {
         super.setUp()
         simpleCalc = SimpleCalc()
- 
     }
     
     override class func tearDown() {
         super.tearDown()
+    }
+    
+    override func tearDownWithError() throws {
+        simpleCalc = nil
     }
 
 //MARK: TESTS OPERATIONS OF CALCULATIONS OF SIMPLECALC CLASS
@@ -198,6 +199,13 @@ class SimpleCalcTest: XCTestCase {
         XCTAssert(simpleCalc.result == 3)
     }
     
+    func testGivenDivision_WhenAddingNumbers_ThenHavingResult(){
+        
+        simpleCalc.result = simpleCalc.division(left: 1, right: 2)
+        
+        XCTAssert(simpleCalc.result == 0.5)
+    }
+    
     func testGivenResetCalc_WhenAskingAReset_ThenStartingANewCalc() {
         
         simpleCalc.resetCalc()
@@ -236,8 +244,15 @@ class SimpleCalcTest: XCTestCase {
         simpleCalc.tappedAddition()
         simpleCalc.tappedAddition()
         
-        XCTAssertEqual(simpleCalc.result == 0.0,  simpleCalc.displayAlertInController(message: "An operator is already set !") == simpleCalc.displayAlertInController(message: "An operator is already set !"))
+        XCTAssertEqual(simpleCalc.result == 0.00,  simpleCalc.displayAlertInController(message: "An operator is already set !") == simpleCalc.displayAlertInController(message: "An operator is already set !"))
     }
     
+    func testGivenAlert_WhenDivisingPerO_ThenResultingAnAlertMessage() {
+        simpleCalc.addNumber(number: "1")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "0")
+        
+        XCTAssertEqual(simpleCalc.result == 0.00, simpleCalc.displayAlertInController(message: "You can't divise per 0, try a new calculation.") == simpleCalc.displayAlertInController(message: "You can't divise per 0, try a new calculation."))
+    }
 }
 
