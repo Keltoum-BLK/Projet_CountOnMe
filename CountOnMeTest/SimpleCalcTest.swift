@@ -213,6 +213,16 @@ class SimpleCalcTest: XCTestCase {
         XCTAssertEqual(simpleCalc.result == 0.0, simpleCalc.textView == "")
     }
     
+    func testGivenMinDecimal_WhenHavingMaxLenghtDouble_ThenResultingMinNumberAfterDot() {
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.tappedDivision()
+        simpleCalc.addNumber(number: "3")
+        
+        simpleCalc.calculator()
+        
+        XCTAssert(simpleCalc.result == 0.6667)
+    }
+    
     //MARK: TESTS FOR ALERT MESSAGES
     func testGivenAlert_WhenAskingTwiceToReset_ThenPrintAlertMessage() {
         simpleCalc.resetCalc()

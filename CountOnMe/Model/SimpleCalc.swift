@@ -24,6 +24,7 @@ class SimpleCalc {
     var elements: [String] {
         return textView.split(separator: " ").map { "\($0)" }
     }
+    
     var result: Double = 0.00
     
     // Error check computed private variables
@@ -117,6 +118,7 @@ class SimpleCalc {
             guard let left = Double(operationsToReduce[prio]) else { return }
             let operand = operationsToReduce[prio + 1]
             guard let right = Double(operationsToReduce[prio + 2]) else { return }
+            
            
             switch operand {
             case "+": result = left + right
@@ -137,16 +139,16 @@ class SimpleCalc {
      
         
     }
-    
+    //method to alert a division per 0
     func division(left: Double, right: Double) -> Double {
         print(expressionHaveResult)
         if right == 0 {
             result = 0.00
             textView = "Error"
             displayAlertInController(message: "You can't divise per 0, try a new calculation.")
-            print(expressionHaveResult)
         } else {
             result = left / right
+            result = round(result * 10000) / 10000
         }
         return result
     }
