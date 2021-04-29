@@ -56,7 +56,7 @@ class SimpleCalc {
         delegate?.didReceiveData(data)
     }
     
-  func displayAlertInController(message: String) {
+   func displayAlertInController(message: String) {
         delegate?.displayAlert(message)
     }
     

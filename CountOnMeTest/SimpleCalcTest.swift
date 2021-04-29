@@ -228,7 +228,7 @@ class SimpleCalcTest: XCTestCase {
         simpleCalc.resetCalc()
         simpleCalc.resetCalc()
         
-        XCTAssertEqual(simpleCalc.result == 0.0, simpleCalc.textView == "")
+        XCTAssertEqual(simpleCalc.result == 0.0, simpleCalc.displayAlertInController(message: "You have already cleared the calculation.") == simpleCalc.displayAlertInController(message: "You have already cleared the calculation."))
     }
     
     func testGivenAlert_WhenAddingAnOperandBefore_ThenResultingAMessage() {
