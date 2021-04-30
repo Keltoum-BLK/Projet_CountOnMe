@@ -9,15 +9,15 @@
 import Foundation
 //MARK: protocle to communicate with the viewCOntroller
 protocol SimpleCalcDelegate: AnyObject {
-   //methods to communicate the data to ViewController
+    //methods to communicate the data to ViewController
     func didReceiveData(_ data: String)
     func displayAlert(_ message : String)
 }
 
 
 class SimpleCalc {
-
-//MARK: Variables used to check and run the code
+    
+    //MARK: Variables used to check and run the code
     //variables using to run the code
     weak var delegate: SimpleCalcDelegate?
     var textView = String()
@@ -28,7 +28,7 @@ class SimpleCalc {
     var result: Double = 0.00
     
     // Error check computed private variables
-     private var expressionIsCorrect: Bool {
+    private var expressionIsCorrect: Bool {
         return elements.last != "+" && elements.last != "-" && elements.last != "x" && elements.last != "/"
     }
     
@@ -51,18 +51,23 @@ class SimpleCalc {
     private var dontOperandFirst: Bool {
         return elements.count >= 1
     }
-   //MARK: Delegate methods to send data to ViewController
-   private func sendToController(data: String) {
+    
+    private var textError : Bool {
+        return textView == "Error"
+    }
+    
+    //MARK: Delegate methods to send data to ViewController
+    private func sendToController(data: String) {
         delegate?.didReceiveData(data)
     }
     
-   func displayAlertInController(message: String) {
+    func displayAlertInController(message: String) {
         delegate?.displayAlert(message)
     }
     
     //MARK: methods to add a number, add an operand addition, substration,  multiplication and division.
     func addNumber(number: String) {
-        if expressionHaveResult {
+        if expressionHaveResult || textError {
             textView = ""
         }
         textView += number
@@ -97,7 +102,7 @@ class SimpleCalc {
                 displayAlertInController(message: "Enter a number")
             }
         } else {
-          displayAlertInController(message: "An operator is already set")
+            displayAlertInController(message: "An operator is already set")
         }
         return sendToController(data: operand)
     }
@@ -119,7 +124,7 @@ class SimpleCalc {
             let operand = operationsToReduce[prio + 1]
             guard let right = Double(operationsToReduce[prio + 2]) else { return }
             
-           
+            
             switch operand {
             case "+": result = left + right
             case "-": result = left - right
@@ -134,14 +139,16 @@ class SimpleCalc {
             }
             operationsToReduce.insert("\(result)", at: prio)
         }
-        textView.append(" = \(operationsToReduce.first!)")
-        sendToController(data: textView)
-     
-        
+        if !textError {
+            textView.append(" = \(operationsToReduce.first!)")
+            sendToController(data: textView)
+        } else {
+            sendToController(data: textView)
+        }
     }
+    
     //method to alert a division per 0
     func division(left: Double, right: Double) -> Double {
-        print(expressionHaveResult)
         if right == 0 {
             result = 0.00
             textView = "Error"
@@ -153,7 +160,7 @@ class SimpleCalc {
         return result
     }
     
-   // method to reset the calculation and start a new one at any moment.
+    // method to reset the calculation and start a new one at any moment.
     func resetCalc() {
         if alreadyReset {
             textView = ""
