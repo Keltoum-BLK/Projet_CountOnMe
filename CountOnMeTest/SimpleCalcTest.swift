@@ -220,7 +220,24 @@ class SimpleCalcTest: XCTestCase {
         
         simpleCalc.calculator()
         
-        XCTAssert(simpleCalc.result == 0.6667)
+        XCTAssert(simpleCalc.result == 0.66667)
+    }
+    
+    
+    func testGivenNumber_WhenAddingNumber_ThenAddToCalc() {
+        simpleCalc.addNumber(number: "2")
+        simpleCalc.addNumber(number: "5")
+        simpleCalc.addNumber(number: "6")
+        
+        XCTAssert(simpleCalc.textView == "256")
+    }
+    
+    func testGivenNothing_WhenAddReset_ThenResultingNothing() {
+        simpleCalc.addNumber(number: "6")
+        
+        simpleCalc.resetCalc()
+        
+        XCTAssert(simpleCalc.textView == "")
     }
     
     //MARK: TESTS FOR ALERT MESSAGES

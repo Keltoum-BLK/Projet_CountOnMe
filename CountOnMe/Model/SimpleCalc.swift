@@ -155,7 +155,7 @@ class SimpleCalc {
             displayAlertInController(message: "You can't divise per 0, try a new calculation.")
         } else {
             result = left / right
-            result = round(result * 10000) / 10000
+            result = round(result * 100000) / 100000
         }
         return result
     }
